@@ -11,7 +11,7 @@ function onload(){
 }
 function displayBagIcon(){
     let bagItemCountElem=document.querySelector('.bag-item-count');
-    if(bag.items.length>0){
+        if(bagItems.length>0){
         bagItemCountElem.style.visibility='visible';
         bagItemCountElem.innerHTML=bagItems.length;
     }else{
@@ -20,6 +20,9 @@ function displayBagIcon(){
     }
 }
 function displayItemsHomePage(){
+    if(!itemsContainerElement){
+        return;
+    }
     let innerhtm='';
     items.forEach(item=>{
         innerhtm+=`<div class="item-container">

@@ -12,7 +12,9 @@ const items = [
             current_price: 606,
             original_price: '1045',
             discount: '42'
-        }
+        },
+        return_period:14,
+        delivery_date:"16 Aug 2025"
     },
     {
         id: '002',
@@ -27,7 +29,9 @@ const items = [
             current_price: 1507,
             original_price: '2599',
             discount: '42'
-        }
+        },
+        return_period:14,
+        delivery_date:"16 Aug 2025"
     },
     {
         id: '003',
@@ -42,7 +46,9 @@ const items = [
             current_price: 495,
             original_price: '1599',
             discount: '69'
-        }
+        },
+        return_period:14,
+        delivery_date:"16 Aug 2025"
     },
     {
         id: '004',
@@ -57,7 +63,9 @@ const items = [
             current_price: 999,
             original_price: '999',
             discount: '0'
-        }
+        },
+        return_period:14,
+        delivery_date:"16 Aug 2025"
     },
     {
         id: '005',
@@ -72,7 +80,9 @@ const items = [
             current_price: 489,
             original_price: '1399',
             discount: '65'
-        }
+        },
+        return_period:14,
+        delivery_date:"16 Aug 2025"
     },
     {
         id: '006',
@@ -87,7 +97,9 @@ const items = [
             current_price: 14995,
             original_price: '14995',
             discount: '0'
-        }
+        },
+        return_period:14,
+        delivery_date:"16 Aug 2025"
     },
     {
         id: '007',
@@ -102,7 +114,9 @@ const items = [
             current_price: 639,
             original_price: '1599',
             discount: '60'
-        }
+        },
+        return_period:14,
+        delivery_date:"16 Aug 2025"
     },
     {
         id: '008',
@@ -117,6 +131,8 @@ const items = [
             current_price: 142,
             original_price: '285',
             discount: '50'
-        }
+        },
+        return_period:14,
+        delivery_date:"16 Aug 2025"
     }
 ];
