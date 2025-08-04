@@ -1,50 +1,52 @@
+let bagItems;
+onLoad();
 
-const itemsContainerElement = document.querySelector(".items-container");
-let bagItems=[];
-onload();
-function onload(){
-    let bagItemsStr=localStorage.getItem('bagItems');
-    bagItems=bagItemsStr?JSON.parse(bagItemsStr):[];
-    displayItemsHomePage();
-    displayBagIcon();
-
-}
-function displayBagIcon(){
-    let bagItemCountElem=document.querySelector('.bag-item-count');
-        if(bagItems.length>0){
-        bagItemCountElem.style.visibility='visible';
-        bagItemCountElem.innerHTML=bagItems.length;
-    }else{
-        bagItemCountElem.style.visibility='hidden';
-        
-    }
-}
-function displayItemsHomePage(){
-    if(!itemsContainerElement){
-        return;
-    }
-    let innerhtm='';
-    items.forEach(item=>{
-        innerhtm+=`<div class="item-container">
-                    <img src="${item.item_image}" alt="item image">
-                    <div class="rating">
-                        ${item.rating.star}⭐|${item.rating.no_of_review}
-                    </div>
-                    <div class="company">
-                       ${item.company_name}
-                    </div>
-                    <div class="item-name">${item.item_name}</div>
-                    <div class="price">
-                        <span class="current-price">Rs ${item.price.current_price}</span><span class="original-price">Rs ${item.price.original_price}</span><span class="discount">(${item.price.discount}% off)</span>
-                    </div>
-                    <button class="btn-add-bag" onclick="addToBag(${item.id})">Add to Bag</button>
-                </div>`
-    })
-    itemsContainerElement.innerHTML=innerhtm;
-}
-function addToBag(itemId){
-    bagItems.push(itemId);
-    localStorage.setItem('bagItems',JSON.stringify(bagItems));
-    displayBagIcon();
+function onLoad() {
+  let bagItemsStr = localStorage.getItem('bagItems');
+  bagItems = bagItemsStr ? JSON.parse(bagItemsStr) : [];
+  displayItemsOnHomePage();
+  displayBagIcon();
 }
 
+function addToBag(itemId) {
+  bagItems.push(itemId);
+  localStorage.setItem('bagItems', JSON.stringify(bagItems));
+  displayBagIcon();
+}
+
+function displayBagIcon() {
+  let bagItemCountElement = document.querySelector('.bag-item-count');
+  if (bagItems.length > 0) {
+    console.log('I am here');
+    bagItemCountElement.style.visibility = 'visible';
+    bagItemCountElement.innerText = bagItems.length;
+  } else {
+    bagItemCountElement.style.visibility = 'hidden';
+  }
+}
+
+function displayItemsOnHomePage() {
+  let itemsContainerElement = document.querySelector('.items-container');
+  if (!itemsContainerElement) {
+    return;
+  }
+  let innerHtml = '';
+  items.forEach(item => {
+    innerHtml += `
+    <div class="item-container">
+      <img class="item-image" src="${item.image}" alt="item image">
+      <div class="rating">
+          ${item.rating.stars} ⭐ | ${item.rating.count}
+      </div>
+      <div class="company-name">${item.company}</div>
+      <div class="item-name">${item.item_name}</div>
+      <div class="price">
+          <span class="current-price">Rs ${item.current_price}</span>
+          <span class="original-price">Rs ${item.original_price}</span>
+          <span class="discount">(${item.discount_percentage}% OFF)</span>
+      </div>
+      <button class="btn-add-bag" onclick="addToBag(${item.id})">Add to Bag</button>
+    </div>`
+  });
+  itemsContainerElement.innerHTML = innerHtml;
+}
